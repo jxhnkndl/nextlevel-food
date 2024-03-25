@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Header from '@/src/components/header';
 
-export default function Home() {
+export default function HomePage() {
   return (
     <main>
       <Header />
