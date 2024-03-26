@@ -1,28 +1,11 @@
+'use client';
+
+import { shareMeal } from '@/lib/actions';
+
 import ImagePicker from '@/components/meals/image-picker';
 import styles from './page.module.css';
 
 export default function ShareMealPage() {
-  // The use server directive creates a SERVER ACTION that will only ever run on the server
-  // Server actions must be explicitly defined using 'use server'
-  // Server actions are always async functions
-  // This function will get called with the form gets submitted and will run directly on the server
-  // The formData interface will be used to grab the input values 
-  async function shareMeal(formData) {
-    'use server';
-
-    // .get() pulls out the value of a field from the formData object
-    const meal = {
-      title: formData.get('title'),
-      summary: formData.get('summary'),
-      instructions: formData.get('instructions'),
-      image: formData.get('image'),
-      creator: formData.get('name'),
-      creator_email: formData.get('email')
-    }
-
-    console.log(meal)
-  }
-
   return (
     <>
       <header className={styles.header}>
@@ -60,7 +43,7 @@ export default function ShareMealPage() {
               rows='10'
               required></textarea>
           </p>
-          <ImagePicker label="Your image" name="image" />
+          <ImagePicker label='Your image' name='image' />
           <p className={styles.actions}>
             <button type='submit'>Share Meal</button>
           </p>
