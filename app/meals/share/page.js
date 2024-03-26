@@ -13,8 +13,8 @@ import styles from './page.module.css';
 
 export default function ShareMealPage() {
   // Arg 1: The action that should be performed when the form is submitted
-  // Arg 2: The initial state of the response BEFORE the form has been submitted (matches up with the return object created in the server actions)
-  // The hook generates a state property representing the most recent form state and a formAction function for calling the action (shareMeal) when the form gets submitted
+  // Arg 2: The initial state of the response BEFORE the form has been submitted (matches up with the shape of the object returned by the server actions)
+  // The hook generates a state property representing the most recent form state (in the shape of the object returned by the server action) and a formAction function for calling the action (shareMeal) when the form gets submitted
   const [state, formAction] = useFormState(shareMeal, { message: null });
 
   return (
@@ -26,7 +26,7 @@ export default function ShareMealPage() {
         <p>Or any other meal you feel needs sharing!</p>
       </header>
       <main className={styles.main}>
-        {/* Use server action function to submit form data via the useFormState() hook */}
+        {/* Use useFormState()'s formAction to call the server action and submit the form */}
         <form className={styles.form} action={formAction}>
           <div className={styles.row}>
             <p>
