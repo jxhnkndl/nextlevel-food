@@ -9,7 +9,7 @@ export default function MealsFormSubmit() {
 
   return (
     // Disable button if it's submitting; change text based on submitting state
-    <button disable={pending} type='submit'>
+    <button disabled={pending} type='submit'>
       {pending ? 'Submitting...' : 'Submit'}
     </button>
   );
